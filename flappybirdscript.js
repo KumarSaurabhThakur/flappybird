@@ -66,9 +66,15 @@ class Pipe {
     }
 
     draw() {
-        context.fillStyle = "#006341";
-        context.fillRect(this.x, 0, this.width, this.top);
-        context.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
+        let obstacleup=new Image();
+        obstacleup.src="pipe2.png";
+        context.drawImage(obstacleup, this.x, -5, this.width, this.top);
+
+        let obstacledown=new Image();
+        obstacledown.src="pipe2.png";
+        obstacledown.style.transform = 'rotate(180deg)';
+        obstacledown.style.translate="100%";
+        context.drawImage(obstacledown, this.x, canvas.height - this.bottom +10, this.width, this.bottom);
     }
 
     update() {
