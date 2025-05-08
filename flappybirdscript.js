@@ -23,9 +23,9 @@ class Player {
     }
 
     draw() {
-        let flappyBird=new Image();
-        flappyBird.src="url('flappybird.png')";
-        context.drawImage(this.x, this.y, this.width, this.height);
+        let flappyBird = new Image();
+        flappyBird.src = "flappybird.png";
+        context.drawImage(flappyBird, this.x, this.y, this.width, this.height);
     }
 
     update() {
@@ -61,12 +61,12 @@ class Pipe {
         this.top = Math.random() * (canvas.height / 2);
         this.bottom = canvas.height - (this.top + this.spacing);
         this.x = canvas.width;
-        this.width = 70;
+        this.width = 80;
         this.speed = 4;
     }
 
     draw() {
-        context.fillStyle = "darkseagreen";
+        context.fillStyle = "#006341";
         context.fillRect(this.x, 0, this.width, this.top);
         context.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
     }
@@ -86,7 +86,8 @@ class Pipe {
             (player.y < this.top || player.y + player.height > canvas.height - this.bottom)
         ) {
             return true;
-        }   return false;
+        }
+        return false;
     }
 }
 
@@ -96,9 +97,9 @@ let frameCount = 0;
 let score = 0;
 
 function drawScore() {
-    context.fillStyle = "white";
-    context.font = "30px Arial";
-    context.fillText("Score: " + score, 20, 50);
+    context.fillStyle = "yellow";
+    context.font = "bolder 3rem urw gothic";
+    context.fillText("Your Score: " + score, 20, 50);
 }
 
 let alertShown = false;
