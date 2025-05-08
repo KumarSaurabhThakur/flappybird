@@ -1,14 +1,10 @@
-
-
-
-
 "use strict";
 
 const canvas = document.querySelector("#canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-canvas.style.backgroundImage = "url('flappybirdback.jpg')";
+canvas.style.backgroundImage = "url('flappybackground.jpg')";
 canvas.style.backgroundSize = "cover";
 
 const context = canvas.getContext("2d");
@@ -19,16 +15,17 @@ class Player {
     constructor() {
         this.x = 150;
         this.y = canvas.height / 2;
-        this.width = 40;
-        this.height = 40;
+        this.width = 50;
+        this.height = 50;
         this.gravity = 0.6;
         this.lift = -10;
         this.velocity = 0;
     }
 
     draw() {
-        context.fillStyle = "yellow";
-        context.fillRect(this.x, this.y, this.width, this.height);
+        let flappyBird=new Image();
+        flappyBird.src="url('flappybird.png')";
+        context.drawImage(this.x, this.y, this.width, this.height);
     }
 
     update() {
@@ -69,7 +66,7 @@ class Pipe {
     }
 
     draw() {
-        context.fillStyle = "green";
+        context.fillStyle = "darkseagreen";
         context.fillRect(this.x, 0, this.width, this.top);
         context.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
     }
