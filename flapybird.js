@@ -8,7 +8,7 @@ const canvas = document.querySelector("#canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-canvas.style.backgroundImage = "url('flappybirdback.jpeg')";
+canvas.style.backgroundImage = "url('flappybirdback.jpg')";
 canvas.style.backgroundSize = "cover";
 
 const context = canvas.getContext("2d");
